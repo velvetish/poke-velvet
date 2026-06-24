@@ -5,7 +5,7 @@ import os
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
-INTERVAL = 300
+INTERVAL = 30
 
 SITES = {
     "Noriel": "https://www.noriel.ro/catalogsearch/result/?q=pokemon+tcg",
