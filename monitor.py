@@ -5,22 +5,30 @@ import os
 
 BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
-INTERVAL = 30
+INTERVAL = 120
 
 SITES = {
-    "Noriel": "https://www.noriel.ro/catalogsearch/result/?q=pokemon+tcg",
-    "BebeTei": "https://comenzi.bebetei.ro/cauti/pokemon%20tcg?stoc=1",
-    "Krit": "https://www.krit.ro/search?q=pokemon+tcg",
-    "Carturesti": "https://carturesti.ro/cauta/pokemon+tcg",
+    "Noriel": "https://www.noriel.ro/catalogsearch/result/?q=pokemon+tcg&in_stock=1",
+    "BebeTei": "https://www.bebetei.ro/cauti/pokemon+tcg",
+    "Krit": "https://www.krit.ro/cauta?q=pokemon+tcg",
+    "Carturesti": "https://carturesti.ro/cautare/pokemon+tcg",
     "Smyk": "https://www.smyk.ro/search?q=pokemon+tcg",
     "LumeaJocurilor": "https://www.lumea-jocurilor.ro/search?q=pokemon+tcg",
     "TCGArena": "https://tcgarena.ro/search?q=pokemon+tcg",
     "LibHumanitas": "https://libhumanitas.ro/search?q=pokemon+tcg"
 }
 
+HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "ro-RO,ro;q=0.9,en;q=0.8",
+    "Accept-Encoding": "gzip, deflate, br",
+    "Connection": "keep-alive"
+}
+
 def get_products(url):
     try:
-        r = requests.get(url, headers={"User-Agent": "Mozilla/5.0"}, timeout=15)
+        r = requests.get(url, headers=HEADERS, timeout=15)
         print(f"Status {url}: {r.status_code}", flush=True)
         matches = re.findall(r'<h2[^>]*>([^<]+)</h2>', r.text)
         if not matches:
