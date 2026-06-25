@@ -13,7 +13,6 @@ SITES = {
     "Krit": "https://www.krit.ro/cauta?q=pokemon+tcg",
     "Carturesti": "https://carturesti.ro/cautare/pokemon+tcg",
     "Smyk": "https://www.smyk.ro/search?q=pokemon+tcg",
-    "LumeaJocurilor": "https://www.lumea-jocurilor.ro/search?q=pokemon+tcg",
     "TCGArena": "https://tcgarena.ro/search?q=pokemon+tcg",
     "LibHumanitas": "https://libhumanitas.ro/search?q=pokemon+tcg"
 }
